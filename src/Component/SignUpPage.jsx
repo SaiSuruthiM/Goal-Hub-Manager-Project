@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [fullname, setFullname] = useState("");
-  const [username, setUsername] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const SignUpPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!email || !password || !username || !fullname) {
+    if (!email || !password || !confirmPassword || !fullname) {
       alert("Enter authorized credentials");
     } else {
       navigate("/menupage");
@@ -65,21 +65,21 @@ const SignUpPage = () => {
           />
           <input
             className="w-72 h-10 px-3 border-2 border-zinc-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
-            type="text"
-            id="username"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Username"
-          />
-          <input
-            className="w-72 h-10 px-3 border-2 border-zinc-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
             type="password"
             id="password"
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
+          />
+          <input
+            className="w-72 h-10 px-3 border-2 border-zinc-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
+            type="text"
+            id="confirmPassword"
+            name="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder="Confirm Password"
           />
         </div>
         <div className="text-sm text-gray-600 text-center mt-5">

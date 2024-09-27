@@ -10,6 +10,10 @@ import TodoWork from './Component/TodoWork';
 import TodoHealth from './Component/TodoHealth';
 import TodoEducation from './Component/TodoEducation';
 import TodoFinance from './Component/TodoFinance';
+import JobPortal from './Component/JobPortal';
+import JobApplication from './Component/JobApplication';
+
+
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 function App() {
@@ -24,10 +28,13 @@ function App() {
           <Route path="/TodoListMenuPage" element={<TodoListMenuPage />} />
           <Route path="/TodoPersonal" element={<TodoPersonal />} />
           <Route path="/TodoWork" element={<TodoWork />} />
-         <Route path="/TodoHealth" element={<TodoHealth />} />
+          <Route path="/TodoHealth" element={<TodoHealth />} />
           <Route path="/TodoEducation" element={<TodoEducation />} />
           <Route path="/TodoFinance" element={<TodoFinance />} />
+          <Route path="/JobPortal" element={<JobPortal />} />
+          <Route path="/JobApplication" element={<JobApplication />} />
           
+         
         </Routes>
       </Router>
     </div>
