@@ -1,34 +1,41 @@
 import React, { useState } from "react";
 
 const JobApplication = () => {
-  const [formData, setFormData] = useState({
+
+ 
+  const initialFormData = {
     fullName: "",
     email: "",
     mobileNumber: "",
     gender: "",
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = () => {
-    const { fullName, email, mobileNumber, gender } = formData;
-    // Perform any action, like sending data to a server or displaying an alert
-    if (!fullName || !email || !mobileNumber || !gender) {
-      alert("Fill in all fields");
-    } else {
-      alert("Your application has been submitted successfully");
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your form submission logic here
+    alert("Form submitted successfully!");
+    resetForm(); // Reset the form after submission
   };
+
+  const resetForm = () => {
+    setFormData(initialFormData); // Reset form data to initial values
+  };
+
 
   return (
-    <div>
-      <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-md border border-gray-200">
-        <h2 className="text-2xl font-bold mb-6 text-green-600">
+    <div className="px-4">
+      <div className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto mt-10 p-6 bg-white shadow-md rounded-md border border-gray-200">
+        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-green-600 text-center">
           Application Form
         </h2>
 
@@ -110,7 +117,7 @@ const JobApplication = () => {
         </div>
 
         <button
-          className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200"
+          className="w-full bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200"
           onClick={handleSubmit}
         >
           Apply

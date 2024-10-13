@@ -12,6 +12,9 @@ import TodoEducation from './Component/TodoEducation';
 import TodoFinance from './Component/TodoFinance';
 import JobPortal from './Component/JobPortal';
 import JobApplication from './Component/JobApplication';
+import ForgetPassword from './Component/ForgetPassword';
+import AboutPage from './Component/AboutPage';
+import CategoryPage from "./Component/CategoryPage";
 
 
 import { BrowserRouter as Router } from "react-router-dom";
@@ -33,8 +36,9 @@ function App() {
           <Route path="/TodoFinance" element={<TodoFinance />} />
           <Route path="/JobPortal" element={<JobPortal />} />
           <Route path="/JobApplication" element={<JobApplication />} />
-          
-         
+          <Route path="/ForgetPassword" element={<ForgetPassword />} />
+          <Route path="/AboutPage" element={<AboutPage />} />
+          <Route path="/CategoryPage" element={<CategoryPage />} />
         </Routes>
       </Router>
     </div>

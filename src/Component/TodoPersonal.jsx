@@ -1,6 +1,6 @@
 
 import girl from "../image/girl.png";
-import plusIcon from "../image/plusIcon.png";
+
 import React, { useState } from "react";
 
 
@@ -57,7 +57,7 @@ function TodoPersonal() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        className="absolute"
+        className="absolute w-full"
       >
         <path
           fill="#0099ff"
@@ -66,16 +66,22 @@ function TodoPersonal() {
         ></path>
       </svg>
 
-      <div className="pt-10">
-        <div className="flex justify-center items-center space-x-4">
-          <div className="pr-10">
-            <img className="w-24 h-24 relative " src={girl} />
+      <div className="pt-10 relative">
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="pr-0 sm:pr-10">
+            <img
+              className="w-20 h-20 sm:w-24 sm:h-24"
+              src={girl}
+              alt="Personal Icon"
+            />
           </div>
-          <p className="text-black font-semibold relative text-4xl">Personal</p>
+          <p className="text-black font-semibold text-3xl sm:text-4xl">
+            Personal
+          </p>
         </div>
       </div>
 
-      <div className="font-playfair pt-32">
+      <div className="font-playfair pt-32 px-4 sm:px-0">
         {/* Add Task Section */}
         <div className="flex flex-col items-center">
           <h2 className="text-3xl font-bold mb-5">Add Task</h2>
@@ -131,56 +137,52 @@ function TodoPersonal() {
         {/* Task List Section */}
         <div className="mt-16 flex flex-col items-center">
           <h2 className="text-2xl font-bold mb-5">Task List</h2>
-          
-            <ul className="border-2 border-blue-400 p-8 rounded-lg bg-blue-100 shadow-md w-full max-w-3xl">
-              {tasks.length > 0 ? (
-                tasks.map((task) => (
-                  <li key={task.id} className="mb-8">
-                    <h3 className="text-2xl font-semibold mb-2">
-                      {task.taskName}
-                    </h3>
-                    <p className="text-lg mb-2">
-                      <span className="font-bold">Description:</span>{" "}
-                      {task.description}
-                    </p>
-                    <p className="text-lg mb-2">
-                      <span className="font-bold">Due Date:</span>{" "}
-                      {task.dueDate}
-                    </p>
-                    <p className="text-lg mb-2">
-                      <span className="font-bold">Priority:</span>{" "}
-                      {task.priority}
-                    </p>
-                    <p className="text-lg mb-4">
-                      <span className="font-bold">Completed:</span>{" "}
-                      {task.completed ? "Yes" : "No"}
-                    </p>
-                    <div className="flex space-x-4">
-                      <button
-                        onClick={() => handleEdit(task.id)}
-                        className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition duration-300"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(task.id)}
-                        className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </li>
-                ))
-              ) : (
-                <p className="text-lg font-semibold text-gray-600">
-                  No tasks available. Add a new task!
-                </p>
-              )}
-            </ul>
-          </div>
+          <ul className="border-2 border-blue-400 p-8 rounded-lg bg-blue-100 shadow-md w-full max-w-3xl">
+            {tasks.length > 0 ? (
+              tasks.map((task) => (
+                <li key={task.id} className="mb-8">
+                  <h3 className="text-2xl font-semibold mb-2">
+                    {task.taskName}
+                  </h3>
+                  <p className="text-lg mb-2">
+                    <span className="font-bold">Description:</span>{" "}
+                    {task.description}
+                  </p>
+                  <p className="text-lg mb-2">
+                    <span className="font-bold">Due Date:</span> {task.dueDate}
+                  </p>
+                  <p className="text-lg mb-2">
+                    <span className="font-bold">Priority:</span> {task.priority}
+                  </p>
+                  <p className="text-lg mb-4">
+                    <span className="font-bold">Completed:</span>{" "}
+                    {task.completed ? "Yes" : "No"}
+                  </p>
+                  <div className="flex space-x-4">
+                    <button
+                      onClick={() => handleEdit(task.id)}
+                      className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition duration-300"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(task.id)}
+                      className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              ))
+            ) : (
+              <p className="text-lg font-semibold text-gray-600">
+                No tasks available. Add a new task!
+              </p>
+            )}
+          </ul>
         </div>
       </div>
-  
+    </div>
   );
 }
 

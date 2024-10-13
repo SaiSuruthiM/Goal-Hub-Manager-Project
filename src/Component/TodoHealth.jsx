@@ -57,7 +57,7 @@ function TodoHealth() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        className="absolute"
+        className="absolute w-full"
       >
         <path
           fill="#0099ff"
@@ -65,20 +65,23 @@ function TodoHealth() {
           d="M0,192L40,208C80,224,160,256,240,234.7C320,213,400,139,480,138.7C560,139,640,213,720,229.3C800,245,880,203,960,176C1040,149,1120,139,1200,165.3C1280,192,1360,256,1400,288L1440,320L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
         ></path>
       </svg>
-      <div>
-        <div className="pt-10">
-         <div className="flex justify-center items-center space-x-4 ">
-            <div className="pr-10">
-              <img className="w-24 h-24 relative " src={healthIcon} />
-            </div>
-            <p className="text-black font-semibold  relative text-4xl">
-              Health
-            </p>
+
+      <div className="pt-10 relative">
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="pr-0 sm:pr-10">
+            <img
+              className="w-20 h-20 sm:w-24 sm:h-24"
+              src={healthIcon}
+              alt="Health Icon"
+            />
           </div>
+          <p className="text-black font-semibold text-3xl sm:text-4xl">
+            Health
+          </p>
         </div>
       </div>
 
-      <div className="font-playfair pt-32">
+      <div className="font-playfair pt-32 px-4 sm:px-0">
         {/* Add Task Section */}
         <div className="flex flex-col items-center">
           <h2 className="text-3xl font-bold mb-5">Add Task</h2>
@@ -180,8 +183,6 @@ function TodoHealth() {
         </div>
       </div>
     </div>
-      
-    
   );
 }
 

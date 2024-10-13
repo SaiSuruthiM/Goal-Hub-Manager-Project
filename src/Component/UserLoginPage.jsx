@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import facebookIcon from "../image/facebookIcon.png";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 const UserLoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,6 +25,7 @@ const UserLoginPage = () => {
 
     if (!email || !password) {
       alert("Enter authorized credentials");
+       error("");
     } else {
       navigate("/menupage");
     }
@@ -34,12 +35,12 @@ const UserLoginPage = () => {
   };
 
   return (
-    <div className="grid place-items-center mt-24">
-      <div className="w-96 border-2 border-zinc-400 rounded-lg shadow-lg">
-        <h3 className="font-mono text-3xl font-bold text-center py-7">
+    <div className="grid place-items-center mt-16 sm:mt-24 px-4">
+      <div className="w-full sm:w-96 border-2 border-zinc-400 rounded-lg shadow-lg">
+        <h3 className="font-mono text-2xl sm:text-3xl font-bold text-center py-5 sm:py-7">
           Global Hub Manager
         </h3>
-        <div className="px-8">
+        <div className="px-4 sm:px-8">
           <input
             className="w-full h-10 px-3 mb-5 border-2 border-zinc-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
             type="email"
@@ -74,13 +75,13 @@ const UserLoginPage = () => {
           </button>
         </div>
         <div className="text-center py-5">
-          <a href="#" className="text-blue-500 hover:underline">
+          <Link to="/ForgetPassword" className="text-blue-500 hover:underline">
             Forgot password?
-          </a>
+          </Link>
         </div>
       </div>
-      <div className="mt-6">
-        <p className="w-96 border-2 border-zinc-400 py-6 flex justify-center items-center rounded-lg">
+      <div className="mt-4 sm:mt-6 w-full sm:w-96 px-4 sm:px-0">
+        <p className="border-2 border-zinc-400 py-4 sm:py-6 flex justify-center items-center rounded-lg">
           Don't have an account?
           <button
             className="text-blue-500 font-medium pl-2 hover:underline"

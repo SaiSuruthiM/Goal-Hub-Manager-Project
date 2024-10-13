@@ -56,53 +56,55 @@ function TodoWork() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        className="absolute"
+        className="absolute w-full"
       >
         <path
           fill="#0099ff"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,192L40,208C80,224,160,256,240,234.7C320,213,400,139,480,138.7C560,139,640,213,720,229.3C800,245,880,203,960,176C1040,149,1120,139,1200,165.3C1280,192,1360,256,1400,288L1440,320L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
         ></path>
       </svg>
-      <div className="">
-        <div className="pt-10">
-          <div className="flex justify-center items-center space-x-4 ">
-            <div className="pr-10">
-              <img className="w-24 h-24 relative " src={workIcon} />
+      <div>
+        <div className="pt-10 relative">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-x-0 sm:space-x-4">
+            <div className="pr-0 sm:pr-10">
+              <img className="w-24 h-24 max-w-full relative" src={workIcon} alt="work icon"/>
             </div>
-            <p className="text-black font-semibold  relative text-4xl">Work</p>
+            <p className="text-black font-semibold relative text-3xl sm:text-4xl">
+              Work
+            </p>
           </div>
         </div>
       </div>
 
-      <div className="font-playfair pt-32">
+      <div className="font-playfair pt-16 sm:pt-32">
         {/* Add Task Section */}
         <div className="flex flex-col items-center">
-          <h2 className="text-3xl font-bold mb-5">Add Task</h2>
-          <form className="border-2 border-blue-400 p-8 rounded-lg bg-blue-100 shadow-md w-full max-w-md">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-5">Add Task</h2>
+          <form className="border-2 border-blue-400 p-5 sm:p-8 rounded-lg bg-blue-100 shadow-md w-full max-w-md">
             <input
               type="text"
               placeholder="Task Name"
               value={taskName}
               onChange={(e) => setTaskName(e.target.value)}
-              className="w-full mb-4 p-3 rounded-md border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl"
+              className="w-full mb-4 p-3 rounded-md border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg sm:text-xl"
             />
             <textarea
               placeholder="Description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full mb-4 p-3 rounded-md border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl"
+              className="w-full mb-4 p-3 rounded-md border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg sm:text-xl"
             />
             <input
               type="datetime-local"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
-              className="w-full mb-4 p-3 rounded-md border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+              className="w-full mb-4 p-3 rounded-md border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base sm:text-lg"
             />
             <select
               value={priority}
               onChange={(e) => setPriority(e.target.value)}
-              className="w-full mb-4 p-3 rounded-md border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+              className="w-full mb-4 p-3 rounded-md border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base sm:text-lg"
             >
               <option value="">Select Priority</option>
               <option value="Low">Low</option>
@@ -116,12 +118,12 @@ function TodoWork() {
                 onChange={(e) => setCompleted(e.target.checked)}
                 className="w-5 h-5 mr-2"
               />
-              <label className="text-xl">Completed</label>
+              <label className="text-lg sm:text-xl">Completed</label>
             </div>
             <button
               type="button"
               onClick={handleSave}
-              className="w-full py-3 bg-blue-600 text-white text-xl rounded-md hover:bg-blue-700 transition duration-300"
+              className="w-full py-3 bg-blue-600 text-white text-lg sm:text-xl rounded-md hover:bg-blue-700 transition duration-300"
             >
               Save Task
             </button>
@@ -129,13 +131,13 @@ function TodoWork() {
         </div>
 
         {/* Task List Section */}
-        <div className="mt-16 flex flex-col items-center">
+        <div className="mt-10 sm:mt-16 flex flex-col items-center">
           <h2 className="text-2xl font-bold mb-5">Task List</h2>
-          <ul className="border-2 border-blue-400 p-8 rounded-lg bg-blue-100 shadow-md w-full max-w-3xl">
+          <ul className="border-2 border-blue-400 p-5 sm:p-8 rounded-lg bg-blue-100 shadow-md w-full max-w-3xl">
             {tasks.length > 0 ? (
               tasks.map((task) => (
                 <li key={task.id} className="mb-8">
-                  <h3 className="text-2xl font-semibold mb-2">
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-2">
                     {task.taskName}
                   </h3>
                   <p className="text-lg mb-2">
@@ -155,13 +157,13 @@ function TodoWork() {
                   <div className="flex space-x-4">
                     <button
                       onClick={() => handleEdit(task.id)}
-                      className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition duration-300"
+                      className="px-3 sm:px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition duration-300"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => handleDelete(task.id)}
-                      className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300"
+                      className="px-3 sm:px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300"
                     >
                       Delete
                     </button>
